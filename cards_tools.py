@@ -56,8 +56,9 @@ def new_card():
         card_list = [name_list]
     else:
        card_list.append(name_list)
-       
 
+       # 按字母顺序对名片进行排序
+       card_list.sort()
     # 4.将名片信息保存入csv文件
     save = pd.DataFrame(data=card_list)
     save.to_csv('1.csv', header=False, index=False, encoding='gbk')
@@ -171,8 +172,8 @@ def deal_card():
                     break
                 else:
                     print("输入错误，请重新选择")
-
-
+            # 按字母顺序对名片进行排序
+            card_list.sort()
             # 将修改后的信息存入文档
             save = pd.DataFrame(data=card_list)
             save.to_csv('1.csv', header=False, index=False, encoding='gbk')
@@ -198,7 +199,8 @@ def del_card():
     for i in card_list:
         if i[0] == del_name:
             card_list.remove(i)
-
+            # 按字母顺序对名片进行排序
+            card_list.sort()
             # 将修改后的信息存入文档
             save = pd.DataFrame(data=card_list)
             save.to_csv('1.csv', header=False, index=False, encoding='gbk')
@@ -229,5 +231,5 @@ def lode_data():
 新增：
 1、加载数据功能 可读取csv文件数据并保存为列表
 2、判断电话号码输入是否为11位有效数字
-
+3、可对存入名片按字母顺序排序
 """
